@@ -35,42 +35,42 @@
 <body class="bg-gray-900 text-white min-h-screen flex flex-col items-center px-4 py-8 transition-colors duration-300">
   <div id="introOverlay">🌤️ Moti në Fshatin Ratkoc</div>
 
-  <button id="toggleMode" class="fixed top-4 right-4 px-4 py-2 bg-gray-700 rounded hover:bg-gray-600">Ndrysho Modalitetin 🌓</button>
+  <button id="toggleMode" class="fixed top-4 right-4 px-4 py-2 bg-gray-700 rounded hover:bg-gray-600 z-50">Ndrysho Modalitetin 🌓</button>
 
-  <header class="mb-6 text-center mt-8">
-    <h1 class="text-4xl font-bold mb-2">🌤️ Moti në Ratkoc</h1>
-    <p class="text-lg text-gray-300">Parashikimi i motit për 7 ditët e ardhshme në fshatin tonë të dashur.</p>
-    <nav class="mt-6 flex flex-col sm:flex-row justify-center items-center gap-4">
-      <a href="galeria.html" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-full shadow-md transition-all duration-300 flex items-center gap-2">
+  <header class="mb-6 text-center mt-8 w-full max-w-6xl">
+    <h1 class="text-3xl md:text-4xl font-bold mb-2">🌤️ Moti në Ratkoc</h1>
+    <p class="text-base md:text-lg text-gray-300">Parashikimi i motit për 7 ditët e ardhshme në fshatin tonë të dashur.</p>
+    <nav class="mt-6 flex flex-col sm:flex-row justify-center items-center gap-4 px-2">
+      <a href="galeria.html" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-full shadow-md transition-all duration-300 flex items-center gap-2 w-full sm:w-auto justify-center">
         📸 Galeria
       </a>
-      <a href="https://www.facebook.com/FshatiRatkoci" target="_blank" class="bg-blue-800 hover:bg-blue-900 text-white font-medium py-2 px-6 rounded-full shadow-md transition-all duration-300 flex items-center gap-2">
+      <a href="https://www.facebook.com/FshatiRatkoci" target="_blank" class="bg-blue-800 hover:bg-blue-900 text-white font-medium py-2 px-6 rounded-full shadow-md transition-all duration-300 flex items-center gap-2 w-full sm:w-auto justify-center">
         👍 Facebook
       </a>
-      <a href="https://www.instagram.com/fshati_ratkoc/" target="_blank" class="bg-pink-600 hover:bg-pink-700 text-white font-medium py-2 px-6 rounded-full shadow-md transition-all duration-300 flex items-center gap-2">
+      <a href="https://www.instagram.com/fshati_ratkoc/" target="_blank" class="bg-pink-600 hover:bg-pink-700 text-white font-medium py-2 px-6 rounded-full shadow-md transition-all duration-300 flex items-center gap-2 w-full sm:w-auto justify-center">
         📷 Instagram
       </a>
     </nav>
   </header>
 
-  <main id="forecast" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-5xl"></main>
+  <main id="forecast" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl px-2"></main>
 
-  <section class="w-full max-w-5xl mt-10">
-    <h2 class="text-2xl font-semibold mb-4">📊 Grafiku i Temperaturës</h2>
+  <section class="w-full max-w-6xl mt-10 px-2">
+    <h2 class="text-xl md:text-2xl font-semibold mb-4">📊 Grafiku i Temperaturës</h2>
     <canvas id="tempChart"></canvas>
   </section>
 
-  <div class="flex justify-center mt-4">
-    <button id="refreshBtn" class="px-5 py-2 bg-blue-600 rounded hover:bg-blue-500 transition-colors duration-200">
+  <div class="flex justify-center mt-4 w-full px-2">
+    <button id="refreshBtn" class="w-full sm:w-auto px-5 py-2 bg-blue-600 rounded hover:bg-blue-500 transition-colors duration-200">
       🔄 Rifresko të Dhënat
     </button>
   </div>
 
-  <section id="map" class="w-full max-w-5xl h-64 my-10 rounded-lg overflow-hidden"></section>
+  <section id="map" class="w-full max-w-6xl h-64 my-10 rounded-lg overflow-hidden px-2"></section>
 
-  <div id="loading" class="text-lg text-gray-400 mt-4">Duke u ngarkuar të dhënat e motit...</div>
+  <div id="loading" class="text-lg text-gray-400 mt-4 text-center">Duke u ngarkuar të dhënat e motit...</div>
 
-  <footer class="mt-10 text-sm text-gray-500">
+  <footer class="mt-10 text-sm text-gray-500 text-center">
     © 2025 Ratkoc. Krijuar nga Arianit Krasniqi.
   </footer>
 
@@ -168,6 +168,8 @@
             }]
           },
           options: {
+            responsive: true,
+            maintainAspectRatio: false,
             scales: {
               y: {
                 beginAtZero: false
@@ -191,7 +193,6 @@
       L.marker([lat, lon]).addTo(map).bindPopup('Fshati Ratkoc 📍').openPopup();
     }
 
- 
     window.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         document.getElementById('introOverlay').classList.add('hidden');
@@ -203,3 +204,4 @@
   </script>
 </body>
 </html>
+
